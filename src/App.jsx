@@ -24,19 +24,179 @@ const CONFIG = {
     // รูปในหน้า Our Memories (ใส่กี่รูปก็ได้)
     memoryPhotos: [
       {
-        src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400",
+        src: "src/pic/memoryPhotos/pic1.jpg",
         message: "รูปแรกของเราตอนนั้นเขินมากเลยนะ 💕"
       },
       {
-        src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400",
+        src: "src/pic/memoryPhotos/pic2.jpg",
         message: "รอยยิ้มของอ้วน คือความสุขของเค้าเลย 😊"
       },
       {
-        src: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=400",
+        src: "src/pic/memoryPhotos/pic3.jpg",
         message: "ไปเที่ยวด้วยกันแบบนี้อีกบ่อยๆ นะ 💖"
       },
       {
-        src: "https://images.unsplash.com/photo-1518199268815-95a171c6433e?w=400",
+        src: "src/pic/memoryPhotos/pic4.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic5.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic6.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic7.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic8.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic9.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic10.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic11.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic12.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic13.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic14.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic15.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic16.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic17.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic18.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic19.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic20.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic21.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic22.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic23.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic24.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic25.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic26.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic27.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic28.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic29.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic30.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic31.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic32.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic33.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic34.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic35.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic36.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic37.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic38.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic39.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic40.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic41.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic42.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic43.jpg",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      },
+      {
+        src: "src/pic/memoryPhotos/pic44.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       }
     ],
