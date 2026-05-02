@@ -23,10 +23,22 @@ const CONFIG = {
     
     // รูปในหน้า Our Memories (ใส่กี่รูปก็ได้)
     memoryPhotos: [
-      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400",
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400",
-      "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=400",
-      "https://images.unsplash.com/photo-1518199268815-95a171c6433e?w=400"
+      {
+        src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400",
+        message: "รูปแรกของเราตอนนั้นเขินมากเลยนะ 💕"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400",
+        message: "รอยยิ้มของอ้วน คือความสุขของเค้าเลย 😊"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=400",
+        message: "ไปเที่ยวด้วยกันแบบนี้อีกบ่อยๆ นะ 💖"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1518199268815-95a171c6433e?w=400",
+        message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
+      }
     ],
     
     // รูปในหน้า จิ๊กซอว์ 12 รูป (ตอนนี้ใส่รูปซ้ำให้เป็นตัวอย่าง)
@@ -216,18 +228,153 @@ function MenuScreen({ onNavigate }) {
 }
 
 // ------------------------------------------------------------------
-// 4. หน้า Our Memories (แกลอรี่รูป)
+// 4. หน้า Our Memories (Tinder Swipe Style & แตะเพื่อพลิก)
 // ------------------------------------------------------------------
 function MemoriesScreen({ onBack }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  // 🎛️ State สำหรับระบบ Tinder Swipe
+  const [startX, setStartX] = useState(null);
+  const [currentX, setCurrentX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [exitX, setExitX] = useState(0);
+
+  const totalPhotos = CONFIG.images.memoryPhotos.length;
+  const currentMemory = CONFIG.images.memoryPhotos[currentIndex];
+
+  // จับจังหวะเริ่มแตะนิ้ว
+  const handlePointerDown = (e) => {
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    setStartX(clientX);
+    setIsDragging(true);
+    setExitX(0); // รีเซ็ตตำแหน่งบินออก
+  };
+
+  // จับจังหวะลากนิ้ว
+  const handlePointerMove = (e) => {
+    if (!isDragging || startX === null) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    setCurrentX(clientX - startX);
+  };
+
+  // จับจังหวะปล่อยนิ้ว
+  const handlePointerUp = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    const threshold = 100; // ระยะทาง (Pixel) ที่ต้องลากให้ถึง เพื่อให้เปลี่ยนรูป
+
+    if (currentX > threshold) {
+      // ➡️ ปัดขวา (ย้อนกลับรูปก่อนหน้า)
+      setExitX(500); // ให้รูปบินออกไปทางขวา
+      setTimeout(() => {
+        setIsFlipped(false);
+        setCurrentIndex((prev) => (prev === 0 ? totalPhotos - 1 : prev - 1));
+        setCurrentX(0);
+        setExitX(0);
+      }, 300);
+    } else if (currentX < -threshold) {
+      // ⬅️ ปัดซ้าย (ไปรูปถัดไป)
+      setExitX(-500); // ให้รูปบินออกไปทางซ้าย
+      setTimeout(() => {
+        setIsFlipped(false);
+        setCurrentIndex((prev) => (prev === totalPhotos - 1 ? 0 : prev + 1));
+        setCurrentX(0);
+        setExitX(0);
+      }, 300);
+    } else if (Math.abs(currentX) < 10) {
+      // 👆 ลากน้อยกว่า 10px ถือว่าเป็นการ "แตะเฉยๆ" ให้พลิกรูป
+      setIsFlipped(!isFlipped);
+      setCurrentX(0);
+    } else {
+      // ↩️ ปล่อยนิ้วแต่ระยะไม่ถึง Threshold ให้รูปเด้งกลับมาตรงกลาง
+      setCurrentX(0);
+    }
+    setStartX(null);
+  };
+
+  // คำนวณความเอียงของรูป (ยิ่งลากไกล ยิ่งเอียงมาก) เหมือน Tinder
+  const xOffset = exitX !== 0 ? exitX : currentX;
+  const rotateDeg = xOffset * 0.05; 
+  
+  const swipeStyle = {
+    transform: `translateX(${xOffset}px) rotate(${rotateDeg}deg)`,
+    transition: isDragging ? 'none' : 'transform 0.3s ease-out', // ปิด Transition ตอนกำลังลาก เพื่อให้ติดนิ้ว
+  };
+
   return (
-    <div className="w-full h-full flex flex-col bg-white overflow-hidden animate-slide-in">
+    <div className="w-full h-full flex flex-col animate-slide-in overflow-hidden" style={{ backgroundColor: CONFIG.colors.bg }}>
       <Header title="Our Sweet Moments" onBack={onBack} />
-      <div className="flex-1 overflow-y-auto p-4 grid grid-cols-2 gap-3 pb-12">
-        {CONFIG.images.memoryPhotos.map((img, idx) => (
-          <div key={idx} className={`rounded-xl overflow-hidden shadow-sm ${idx % 3 === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}>
-            <img src={img} alt={`Memory ${idx}`} className="w-full h-full object-cover" />
+      
+      <div className="flex-1 flex flex-col items-center justify-center px-6 pb-16 relative">
+        
+        {/* เลเยอร์นอกสุด: จัดการเรื่องการปัดซ้าย-ขวา (Tinder Effect) */}
+        <div 
+          className="w-full aspect-[4/5] cursor-grab active:cursor-grabbing absolute z-10"
+          style={swipeStyle}
+          onTouchStart={handlePointerDown}
+          onTouchMove={handlePointerMove}
+          onTouchEnd={handlePointerUp}
+          onMouseDown={handlePointerDown}
+          onMouseMove={handlePointerMove}
+          onMouseUp={handlePointerUp}
+          onMouseLeave={handlePointerUp} // ป้องกันกรณีเมาส์หลุดออกจากกรอบ
+        >
+          {/* เลเยอร์ด้านใน: จัดการเรื่องการพลิกรูป 3D (Flip Effect) */}
+          <div 
+            className="w-full h-full relative transition-transform duration-500 shadow-2xl rounded-3xl"
+            style={{ 
+              transformStyle: 'preserve-3d', 
+              transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+              perspective: '1000px'
+            }}
+          >
+            {/* 🖼️ ด้านหน้า: รูปภาพ */}
+            <div 
+              className="absolute inset-0 w-full h-full bg-white border-4 border-white rounded-3xl overflow-hidden"
+              style={{ backfaceVisibility: 'hidden' }}
+            >
+              <img 
+                src={currentMemory.src} 
+                alt={`Memory ${currentIndex}`} 
+                className="w-full h-full object-cover select-none pointer-events-none"
+                draggable="false" // ป้องกัน Browser จับภาพไป Drag&Drop
+              />
+            </div>
+
+            {/* 💌 ด้านหลัง: ข้อความ */}
+            <div 
+              className="absolute inset-0 w-full h-full rounded-3xl border-4 border-white flex items-center justify-center p-6 text-center shadow-inner"
+              style={{ 
+                backfaceVisibility: 'hidden', 
+                transform: 'rotateY(180deg)',
+                backgroundColor: CONFIG.colors.primary,
+                color: 'white'
+              }}
+            >
+              <p className="text-xl font-bold leading-relaxed whitespace-pre-wrap drop-shadow-md select-none">
+                {currentMemory.message}
+              </p>
+            </div>
           </div>
-        ))}
+        </div>
+
+        {/* จุดบอกตำแหน่งรูป (Dots Indicator) - ย้ายลงมาไว้ล่างสุดและกำหนดให้อยู่ด้านหลังการ์ด */}
+        <div className="absolute bottom-10 flex gap-2 z-0">
+          {CONFIG.images.memoryPhotos.map((_, idx) => (
+            <div 
+              key={idx} 
+              className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8' : 'w-2 opacity-40'}`}
+              style={{ backgroundColor: CONFIG.colors.primary }}
+            />
+          ))}
+        </div>
+
+        <p className="absolute bottom-4 text-sm font-medium opacity-60 text-center z-0 w-full">
+          ปัดซ้าย-ขวา เพื่อเปลี่ยนภาพ 👆<br/>
+          แตะที่รูป เพื่ออ่านข้อความ 💖
+        </p>
       </div>
     </div>
   );
