@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Lock, Heart, Calendar, Image as ImageIcon, MessageSquare, Puzzle, ChevronLeft, Gift } from 'lucide-react';
 
 // ============================================================================
 // ⚙️ [CONFIG] ตั้งค่าทุกอย่างตรงนี้ได้เลยครับ! 
 // ============================================================================
 const CONFIG = {
-  password: "0610", 
-  lockScreenHint: "วันเกิดเค้าคือรหัสผ่านนะ ❤️",
+  password: "0411", // รหัสผ่านหน้าล็อค (เปลี่ยนได้ตามใจชอบ)
+  lockScreenHint: "วันครบรอบของเรา 🥰",
 
   // 🎨 2. สีหลักของแอป (ใช้โค้ดสี Hex)
   colors: {
@@ -24,179 +24,179 @@ const CONFIG = {
     // รูปในหน้า Our Memories (ใส่กี่รูปก็ได้)
     memoryPhotos: [
       {
-        src: "src/pic/memoryPhotos/pic1.jpg",
+        src: "/pic/memoryPhotos/pic1.jpg",
         message: "รูปแรกของเราตอนนั้นเขินมากเลยนะ 💕"
       },
       {
-        src: "src/pic/memoryPhotos/pic2.jpg",
+        src: "/pic/memoryPhotos/pic2.jpg",
         message: "รอยยิ้มของอ้วน คือความสุขของเค้าเลย 😊"
       },
       {
-        src: "src/pic/memoryPhotos/pic3.jpg",
+        src: "/pic/memoryPhotos/pic3.jpg",
         message: "ไปเที่ยวด้วยกันแบบนี้อีกบ่อยๆ นะ 💖"
       },
       {
-        src: "src/pic/memoryPhotos/pic4.jpg",
+        src: "/pic/memoryPhotos/pic4.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic5.jpg",
+        src: "/pic/memoryPhotos/pic5.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic6.jpg",
+        src: "/pic/memoryPhotos/pic6.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic7.jpg",
+        src: "/pic/memoryPhotos/pic7.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic8.jpg",
+        src: "/pic/memoryPhotos/pic8.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic9.jpg",
+        src: "/pic/memoryPhotos/pic9.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic10.jpg",
+        src: "/pic/memoryPhotos/pic10.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic11.jpg",
+        src: "/pic/memoryPhotos/pic11.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic12.jpg",
+        src: "/pic/memoryPhotos/pic12.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic13.jpg",
+        src: "/pic/memoryPhotos/pic13.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic14.jpg",
+        src: "/pic/memoryPhotos/pic14.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic15.jpg",
+        src: "/pic/memoryPhotos/pic15.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic16.jpg",
+        src: "/pic/memoryPhotos/pic16.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic17.jpg",
+        src: "/pic/memoryPhotos/pic17.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic18.jpg",
+        src: "/pic/memoryPhotos/pic18.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic19.jpg",
+        src: "/pic/memoryPhotos/pic19.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic20.jpg",
+        src: "/pic/memoryPhotos/pic20.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic21.jpg",
+        src: "/pic/memoryPhotos/pic21.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic22.jpg",
+        src: "/pic/memoryPhotos/pic22.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic23.jpg",
+        src: "/pic/memoryPhotos/pic23.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic24.jpg",
+        src: "/pic/memoryPhotos/pic24.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic25.jpg",
+        src: "/pic/memoryPhotos/pic25.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic26.jpg",
+        src: "/pic/memoryPhotos/pic26.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic27.jpg",
+        src: "/pic/memoryPhotos/pic27.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic28.jpg",
+        src: "/pic/memoryPhotos/pic28.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic29.jpg",
+        src: "/pic/memoryPhotos/pic29.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic30.jpg",
+        src: "/pic/memoryPhotos/pic30.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic31.jpg",
+        src: "/pic/memoryPhotos/pic31.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic32.jpg",
+        src: "/pic/memoryPhotos/pic32.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic33.jpg",
+        src: "/pic/memoryPhotos/pic33.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic34.jpg",
+        src: "/pic/memoryPhotos/pic34.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic35.jpg",
+        src: "/pic/memoryPhotos/pic35.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic36.jpg",
+        src: "/pic/memoryPhotos/pic36.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic37.jpg",
+        src: "/pic/memoryPhotos/pic37.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic38.jpg",
+        src: "/pic/memoryPhotos/pic38.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic39.jpg",
+        src: "/pic/memoryPhotos/pic39.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic40.jpg",
+        src: "/pic/memoryPhotos/pic40.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic41.jpg",
+        src: "/pic/memoryPhotos/pic41.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic42.jpg",
+        src: "/pic/memoryPhotos/pic42.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic43.jpg",
+        src: "/pic/memoryPhotos/pic43.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       },
       {
-        src: "src/pic/memoryPhotos/pic44.jpg",
+        src: "/pic/memoryPhotos/pic44.jpg",
         message: "ขอบคุณที่อยู่ข้างกันมาตลอด รักเธอที่สุดในโลกเลยยยย 🐷"
       }
     ],
@@ -388,7 +388,7 @@ function MenuScreen({ onNavigate }) {
 }
 
 // ------------------------------------------------------------------
-// 4. หน้า Our Memories (Tinder Swipe Style & แตะเพื่อพลิก)
+// 4. หน้า Our Memories (ปัดทิ้งแบบ Tinder & เฟดภาพใหม่เข้ามา)
 // ------------------------------------------------------------------
 function MemoriesScreen({ onBack }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -399,68 +399,96 @@ function MemoriesScreen({ onBack }) {
   const [currentX, setCurrentX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [exitX, setExitX] = useState(0);
+  const [isFading, setIsFading] = useState(false); // เพิ่ม State ควบคุมการเฟดภาพ
 
   const totalPhotos = CONFIG.images.memoryPhotos.length;
   const currentMemory = CONFIG.images.memoryPhotos[currentIndex];
 
-  // จับจังหวะเริ่มแตะนิ้ว
   const handlePointerDown = (e) => {
+    if (isFading) return; // บล็อคไม่ให้กดถ้ารูปกำลังเฟดอยู่
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     setStartX(clientX);
     setIsDragging(true);
-    setExitX(0); // รีเซ็ตตำแหน่งบินออก
+    setExitX(0);
   };
 
-  // จับจังหวะลากนิ้ว
   const handlePointerMove = (e) => {
     if (!isDragging || startX === null) return;
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     setCurrentX(clientX - startX);
   };
 
-  // จับจังหวะปล่อยนิ้ว
   const handlePointerUp = () => {
     if (!isDragging) return;
     setIsDragging(false);
 
-    const threshold = 100; // ระยะทาง (Pixel) ที่ต้องลากให้ถึง เพื่อให้เปลี่ยนรูป
+    const threshold = 100; // ระยะทางที่ต้องลากให้ถึง
 
     if (currentX > threshold) {
-      // ➡️ ปัดขวา (ย้อนกลับรูปก่อนหน้า)
-      setExitX(500); // ให้รูปบินออกไปทางขวา
-      setTimeout(() => {
-        setIsFlipped(false);
-        setCurrentIndex((prev) => (prev === 0 ? totalPhotos - 1 : prev - 1));
-        setCurrentX(0);
-        setExitX(0);
-      }, 300);
+      // ➡️ ปัดขวา (บินออกขวา แล้วย้อนรูป)
+      setExitX(500); 
+      triggerChangePhoto('prev');
     } else if (currentX < -threshold) {
-      // ⬅️ ปัดซ้าย (ไปรูปถัดไป)
-      setExitX(-500); // ให้รูปบินออกไปทางซ้าย
-      setTimeout(() => {
-        setIsFlipped(false);
-        setCurrentIndex((prev) => (prev === totalPhotos - 1 ? 0 : prev + 1));
-        setCurrentX(0);
-        setExitX(0);
-      }, 300);
+      // ⬅️ ปัดซ้าย (บินออกซ้าย แล้วไปรูปถัดไป)
+      setExitX(-500);
+      triggerChangePhoto('next');
     } else if (Math.abs(currentX) < 10) {
-      // 👆 ลากน้อยกว่า 10px ถือว่าเป็นการ "แตะเฉยๆ" ให้พลิกรูป
+      // 👆 แตะเฉยๆ (พลิกรูป)
       setIsFlipped(!isFlipped);
       setCurrentX(0);
     } else {
-      // ↩️ ปล่อยนิ้วแต่ระยะไม่ถึง Threshold ให้รูปเด้งกลับมาตรงกลาง
+      // ↩️ ปล่อยนิ้วแต่ไม่ถึงระยะ (เด้งกลับ)
       setCurrentX(0);
     }
     setStartX(null);
   };
 
-  // คำนวณความเอียงของรูป (ยิ่งลากไกล ยิ่งเอียงมาก) เหมือน Tinder
+  // ฟังก์ชันจัดการจังหวะบินออก -> ซ่อน -> เฟดอิน
+  const triggerChangePhoto = (direction) => {
+    setTimeout(() => {
+      // 1. หลังจากภาพบินออกไปแล้ว ให้ซ่อนภาพ (isFading=true) และดึงกลับมาตรงกลางทันที
+      setIsFading(true);
+      setIsFlipped(false);
+      
+      setCurrentIndex((prev) => {
+        if (direction === 'next') return prev === totalPhotos - 1 ? 0 : prev + 1;
+        return prev === 0 ? totalPhotos - 1 : prev - 1;
+      });
+      
+      setCurrentX(0);
+      setExitX(0);
+
+      // 2. รอแปบนึงให้ DOM จัดตำแหน่งล่องหนเสร็จ แล้วค่อยสั่งเฟดภาพโชว์ (isFading=false)
+      setTimeout(() => {
+        setIsFading(false);
+      }, 50); 
+      
+    }, 300); // 300ms คือเวลารอให้ภาพบินออกไปนอกจอให้เสร็จก่อน
+  };
+
+  // คำนวณสไตล์ของภาพแบบ Real-time
   const xOffset = exitX !== 0 ? exitX : currentX;
   const rotateDeg = xOffset * 0.05; 
   
+  let transformStyle = `translateX(${xOffset}px) rotate(${rotateDeg}deg)`;
+  let transitionStyle = isDragging ? 'none' : 'transform 0.3s ease-out';
+  let opacityStyle = 1;
+
+  if (isFading) {
+    // จังหวะดึงรูปกลับมาตรงกลางแบบ "ล่องหน"
+    transformStyle = `translateX(0px) rotate(0deg)`;
+    transitionStyle = 'none'; // ปิดอนิเมชั่นเพื่อให้วาร์ปกลับมาทันที
+    opacityStyle = 0; // ซ่อนรูป
+  } else if (!isDragging && exitX === 0 && currentX === 0) {
+    // จังหวะเฟดรูปใหม่เข้ามา หรือตั้งอยู่เฉยๆ
+    transitionStyle = 'opacity 0.4s ease-in, transform 0.3s ease-out';
+    opacityStyle = 1;
+  }
+
   const swipeStyle = {
-    transform: `translateX(${xOffset}px) rotate(${rotateDeg}deg)`,
-    transition: isDragging ? 'none' : 'transform 0.3s ease-out', // ปิด Transition ตอนกำลังลาก เพื่อให้ติดนิ้ว
+    transform: transformStyle,
+    transition: transitionStyle,
+    opacity: opacityStyle,
   };
 
   return (
@@ -469,7 +497,6 @@ function MemoriesScreen({ onBack }) {
       
       <div className="flex-1 flex flex-col items-center justify-center px-6 pb-16 relative">
         
-        {/* เลเยอร์นอกสุด: จัดการเรื่องการปัดซ้าย-ขวา (Tinder Effect) */}
         <div 
           className="w-full aspect-[4/5] cursor-grab active:cursor-grabbing absolute z-10"
           style={swipeStyle}
@@ -479,9 +506,8 @@ function MemoriesScreen({ onBack }) {
           onMouseDown={handlePointerDown}
           onMouseMove={handlePointerMove}
           onMouseUp={handlePointerUp}
-          onMouseLeave={handlePointerUp} // ป้องกันกรณีเมาส์หลุดออกจากกรอบ
+          onMouseLeave={handlePointerUp}
         >
-          {/* เลเยอร์ด้านใน: จัดการเรื่องการพลิกรูป 3D (Flip Effect) */}
           <div 
             className="w-full h-full relative transition-transform duration-500 shadow-2xl rounded-3xl"
             style={{ 
@@ -499,7 +525,7 @@ function MemoriesScreen({ onBack }) {
                 src={currentMemory.src} 
                 alt={`Memory ${currentIndex}`} 
                 className="w-full h-full object-cover select-none pointer-events-none"
-                draggable="false" // ป้องกัน Browser จับภาพไป Drag&Drop
+                draggable="false"
               />
             </div>
 
@@ -520,7 +546,7 @@ function MemoriesScreen({ onBack }) {
           </div>
         </div>
 
-        {/* จุดบอกตำแหน่งรูป (Dots Indicator) - ย้ายลงมาไว้ล่างสุดและกำหนดให้อยู่ด้านหลังการ์ด */}
+        {/* จุดบอกตำแหน่งรูป */}
         <div className="absolute bottom-10 flex gap-2 z-0">
           {CONFIG.images.memoryPhotos.map((_, idx) => (
             <div 
@@ -532,7 +558,7 @@ function MemoriesScreen({ onBack }) {
         </div>
 
         <p className="absolute bottom-4 text-sm font-medium opacity-60 text-center z-0 w-full">
-          ปัดซ้าย-ขวา เพื่อเปลี่ยนภาพ 👆<br/>
+          ปัดทิ้ง เพื่อเปลี่ยนภาพ 👆<br/>
           แตะที่รูป เพื่ออ่านข้อความ 💖
         </p>
       </div>
