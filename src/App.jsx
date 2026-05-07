@@ -18,7 +18,6 @@ const CONFIG = {
   // 🖼️ 3. รูปภาพทั้งหมด (เอาลิ้งค์รูปมาวางแทนที่ได้เลย)
   images: {
     introCake: "pic/pic44.jpg", // รูปเค้กหน้าแรก
-    coupleMain: "https://images.unsplash.com/photo-1518199268815-95a171c6433e?w=500", // รูปคู่หน้าปลดล็อค (ถ้ามี)
     profilePic: "pic/memoryPhotos/pic43.jpg", // รูปโปรไฟล์หน้าปฏิทิน
     
     // รูปในหน้า Our Memories (ใส่กี่รูปก็ได้)
@@ -205,11 +204,11 @@ const CONFIG = {
     puzzlePhotos: 
       [
         "/pic/puzzlePhotos/pic1.jpg",
-        "/pic/puzzlePhotos/pic1.jpg",
-        "/pic/puzzlePhotos/pic1.jpg",
-        "/pic/puzzlePhotos/pic1.jpg",
-        "/pic/puzzlePhotos/pic1.jpg",
-        "/pic/puzzlePhotos/pic1.jpg",
+        "/pic/puzzlePhotos/pic2.jpg",
+        "/pic/puzzlePhotos/pic3.jpg",
+        "/pic/puzzlePhotos/pic4.jpg",
+        "/pic/puzzlePhotos/pic5.jpg",
+        "/pic/puzzlePhotos/pic6.jpg",
       ],
   },
 
@@ -219,15 +218,15 @@ const CONFIG = {
     introSubtitle: "เด้กเร้กของเค้า", // ข้อความเล็กหน้าแรก
     introButton: "อยากรู้มั้ยว่ามีอะไรด้านใน? 🎁", // ข้อความปุ่มหน้าแรก
     
-    calendarStart: "2022-10-21T00:00:00", // วันเริ่มคบกัน (ปี-เดือน-วันTเวลา) // 11 -1,4 +17
+    calendarStart: "2022-10-21T00:00:00", // 2022-11-04T00:00:00
     calendarTitle: "ปฏิทินเหม้นฟามรักกกก", // ชื่อหน้าปฏิทิน
     calendarSubtitle: "เราคบกันมานานแค่ไหนแล้วน้าา 💖",
     calendarSec: "จำนวนวินาทีที่เค้ามีบบ 🌼", // ข้อความใต้ตัวนับเวลา
     
     puzzleSuccess: "บบเก่งจุงง เค้าว่าแยะบบต้องทำได้ ให้รางวัลเป็นการจุ้บ1ที ิิิิ (หันแจ้มมา!!!)",
     
-    letterTitle: "Dear Khunsa", // ชื่อแฟน
-    letterContent: `ิิิวันเกิดอีกปีแล้ววววว บบโตขึ้นอีกแล้วววนะะ (แต่ก็ยังเป็นเด้กเร้กของเค้ายุดิ) เค้าขออวยพรให้บบรวยๆๆๆๆๆ(จะได้เลี้ยงเค้า) และทำตัวน่ารักแบบนี้ไปเรื่อยๆๆๆๆ มีฟามสุขๆๆๆๆๆ ไม่มีเรื่องให้เคียด และขอให้บบอยากออกกำลังกายกะเค้า จะได้เปงคนหมั่ยยยๆๆ ิิิ ...อ่านจบแล้วหรอออ ทีนี้ลองลุกไปเปิดตู้เย็นดูจิ`
+    letterTitle: "Dear Khunsa",
+    letterContent: `ิิิวันเกิดอีกปีแล้ววววว บบโตขึ้นอีกแล้วววนะะ (แต่ก็ยังเป็นเด้กเร้กของเค้ายุดิ) เค้าขออวยพรให้บบรวยๆๆๆๆๆ(จะได้เลี้ยงเค้า) และทำตัวน่ารักแบบนี้ไปเรื่อยๆๆๆๆ มีฟามสุขๆๆๆๆๆ ไม่มีเรื่องให้เคียด และขอให้บบอยากออกกำลังกายกะเค้า จะได้เปงคนหมั่ยยยๆๆ ิิิ ...อ่านจบแล้วหรอออ ลองลุกไปเปิดตู้เย็นดูจิ`
   }
 };
 // ============================================================================
@@ -321,7 +320,7 @@ function LockScreen({ onUnlock }) {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-8 animate-slide-up" style={{ backgroundColor: CONFIG.colors.bg }}>
       <Lock size={48} color={CONFIG.colors.primary} className="mb-4" />
-      <h2 className="text-2xl font-bold mb-2">คุณใช่บบตัวเร้กหรือไม่</h2>
+      <h2 className="text-2xl font-bold mb-2">คุณคือบบตัวเร้กตัวจริงหรือไม่</h2>
       
       {/* 🟢 แก้ไขตรงนี้: เปลี่ยนจาก CONFIG.text.lockScreenHint เป็น CONFIG.lockScreenHint */}
       {invalidAttempts && <p className="mb-8 opacity-70 text-center">{CONFIG.lockScreenHint}</p>}
@@ -366,8 +365,8 @@ function MenuScreen({ onNavigate }) {
   return (
     <div className="w-full h-full flex flex-col p-6 animate-fade-in" style={{ backgroundColor: CONFIG.colors.bg }}>
       <div className="text-center mt-12 mb-10">
-        <h2 className="text-3xl font-bold mb-2">อยากรู้ก็ต้องลองจิ้ม</h2>
-        <p className="flex items-center justify-center gap-2 opacity-80"><Heart size={16} fill={CONFIG.colors.primary} />เค้าขยันเร้กน้อย ิิ</p>
+        <h2 className="text-3xl font-bold mb-2">อยากรู้ก็ต้องลองจิ้มม</h2>
+        <p className="flex items-center justify-center gap-2 opacity-80"><Heart size={16} fill={CONFIG.colors.primary} />เค้าขยันเร้กน้อยง่ะ ิิ</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
