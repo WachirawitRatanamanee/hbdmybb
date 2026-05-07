@@ -205,11 +205,11 @@ const CONFIG = {
     puzzlePhotos: 
       [
         "/pic/puzzlePhotos/pic1.jpg",
-        "/pic/puzzlePhotos/pic2.jpg",
-        "/pic/puzzlePhotos/pic3.jpg",
-        "/pic/puzzlePhotos/pic4.jpg",
-        "/pic/puzzlePhotos/pic5.jpg",
-        "/pic/puzzlePhotos/pic6.jpg",
+        "/pic/puzzlePhotos/pic1.jpg",
+        "/pic/puzzlePhotos/pic1.jpg",
+        "/pic/puzzlePhotos/pic1.jpg",
+        "/pic/puzzlePhotos/pic1.jpg",
+        "/pic/puzzlePhotos/pic1.jpg",
       ],
   },
 
@@ -224,10 +224,10 @@ const CONFIG = {
     calendarSubtitle: "เราคบกันมานานแค่ไหนแล้วน้าา 💖",
     calendarSec: "จำนวนวินาทีที่เค้ามีบบ 🌼", // ข้อความใต้ตัวนับเวลา
     
-    puzzleSuccess: "ไอ้อ้วนของเค้าน่ารักที่สุดเลย!! 💖🐷",
+    puzzleSuccess: "บบเก่งจุงง เค้าว่าแยะบบต้องทำได้ ให้รางวัลเป็นการจุ้บ1ที ิิิิ (หันแจ้มมา!!!)",
     
     letterTitle: "Dear Khunsa", // ชื่อแฟน
-    letterContent: `ถึงไอ้อ้วน... สุขสันต์วันเกิดนะ! ขอบคุณที่เข้ามาเป็นความสุขในทุกๆ วันของเค้า ขอบคุณที่คอยดูแลและทนความดื้อของเค้ามาตลอด ขอให้ปีนี้เป็นปีที่ดีของเธอ มีความสุขมากๆ และอยู่เป็นรอยยิ้มให้กันแบบนี้ไปนานๆ นะ รักเธอที่สุดเลย! 💕`
+    letterContent: `ิิิวันเกิดอีกปีแล้ววววว บบโตขึ้นอีกแล้วววนะะ (แต่ก็ยังเป็นเด้กเร้กของเค้ายุดิ) เค้าขออวยพรให้บบรวยๆๆๆๆๆ(จะได้เลี้ยงเค้า) และทำตัวน่ารักแบบนี้ไปเรื่อยๆๆๆๆ มีฟามสุขๆๆๆๆๆ ไม่มีเรื่องให้เคียด และขอให้บบอยากออกกำลังกายกะเค้า จะได้เปงคนหมั่ยยยๆๆ ิิิ ...อ่านจบแล้วหรอออ ทีนี้ลองลุกไปเปิดตู้เย็นดูจิ`
   }
 };
 // ============================================================================
@@ -687,7 +687,7 @@ function PuzzleScreen({ onBack }) {
   return (
     <div className="w-full h-full flex flex-col animate-slide-in" style={{ backgroundColor: CONFIG.colors.bg }}>
       <Header title="เกมสำหรับเด้กเร้ก" onBack={onBack} />
-      <p className="text-center text-sm opacity-70 mt-4 mb-6">จับคู่รูปความทรงจำของเราให้ครบนะ ❤️</p>
+      <p className="text-center text-sm opacity-70 mt-4 mb-6">เค้ารู้ว่าบบทำด้ายยย ฮึบๆๆๆ</p>
       
       <div className="grid grid-cols-3 gap-3 px-6">
         {cards.map((card, idx) => {
@@ -721,7 +721,7 @@ function PuzzleScreen({ onBack }) {
               className="w-full py-3 rounded-xl text-white font-bold active:scale-95 transition"
               style={{ backgroundColor: CONFIG.colors.primary }}
             >
-              ปิด (Love you)
+              ให้เค้าจุ้บก่อนถึงออกได้!
             </button>
           </div>
         </div>
